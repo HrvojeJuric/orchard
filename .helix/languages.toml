@@ -1,0 +1,82 @@
+[language-server]
+nil = { command = "nil" }
+taplo = { command = "taplo", args = ["lsp", "stdio"] }
+yaml-language-server = { command = "yaml-language-server", args = ["--stdio"] }
+marksman = { command = "marksman", args = ["server"] }
+
+[language-server.omnisharp]
+command = "OmniSharp"
+args = ["-lsp"]
+timeout = 10000
+
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+args = ["--stdio"]
+config.hostInfo = "helix"
+
+[language-server.vscode-json-language-server]
+command = "vscode-json-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-json-language-server.config]
+provideFormatter = false
+format = { enable = false }
+json = { validate = { enable = true } }
+
+[language-server.vscode-css-language-server]
+command = "vscode-css-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-css-language-server.config]
+provideFormatter = false
+format = { enable = false }
+css = { validate = { enable = true } }
+
+[language-server.vscode-html-language-server]
+command = "vscode-html-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-html-language-server.config]
+provideFormatter = false
+format = { enable = false }
+html = { validate = { enable = true } }
+
+[[language]]
+name = "nix"
+language-servers = ["nil"]
+
+[[language]]
+name = "c-sharp"
+language-servers = ["omnisharp"]
+
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server"]
+
+[[language]]
+name = "javascript"
+language-servers = ["typescript-language-server"]
+
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server"]
+
+[[language]]
+name = "scss"
+language-servers = ["vscode-css-language-server"]
+
+[[language]]
+name = "yaml"
+language-servers = ["yaml-language-server"]
+
+[[language]]
+name = "json"
+language-servers = ["vscode-json-language-server"]
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman"]
+
+[[language]]
+name = "toml"
+language-servers = ["taplo"]
